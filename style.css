@@ -311,23 +311,23 @@ main {
 }
 
 @media (max-width: 768px) {
-    .demo-box, .demo-box.reverse {
+    header {
         flex-direction: column;
-        text-align: center;
+        gap: 1.5rem;
+        padding: 1.5rem 5%;
     }
-    
-    .demo-info {
-        text-align: center;
-    }
-}
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .invite-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
-}
+
+    .hero {
+        margin-top: 2rem;
+    }
