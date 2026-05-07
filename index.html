@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KeyFlow is a high-performance, asynchronous Discord bot designed to handle your software licensing, key generation, and redemption processes effortlessly.">
-    <meta name="keywords" content="Discord Bot, License Management, Key Generation, Async Bot, Software Licensing, KeyFlow">
+    <meta name="description"
+        content="KeyFlow is a high-performance, asynchronous Discord bot designed to handle your software licensing, key generation, and redemption processes effortlessly.">
+    <meta name="keywords"
+        content="Discord Bot, License Management, Key Generation, Async Bot, Software Licensing, KeyFlow">
     <meta name="author" content="KeyFlow">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="KeyFlow | Advanced Discord License Bot">
-    <meta property="og:description" content="KeyFlow is a high-performance, asynchronous Discord bot designed to handle your software licensing, key generation, and redemption processes effortlessly.">
+    <meta property="og:description"
+        content="KeyFlow is a high-performance, asynchronous Discord bot designed to handle your software licensing, key generation, and redemption processes effortlessly.">
     <meta property="og:image" content="logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary">
     <meta property="twitter:title" content="KeyFlow | Advanced Discord License Bot">
-    <meta property="twitter:description" content="KeyFlow is a high-performance, asynchronous Discord bot designed to handle your software licensing, key generation, and redemption processes effortlessly.">
+    <meta property="twitter:description"
+        content="KeyFlow is a high-performance, asynchronous Discord bot designed to handle your software licensing, key generation, and redemption processes effortlessly.">
     <meta property="twitter:image" content="logo.png">
 
     <title>KeyFlow | Advanced Discord License Bot</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="bg-glow"></div>
-    
+
     <header>
         <a href="index.html" class="logo-container">
             <img src="logo.png" alt="KeyFlow Logo">
@@ -40,21 +46,25 @@
     <main>
         <div class="hero">
             <h2>Manage Your Licenses Seamlessly</h2>
-            <p>KeyFlow is a high-performance, asynchronous Discord bot designed to handle your software licensing, key generation, and redemption processes effortlessly within your server.</p>
+            <p>KeyFlow is a high-performance, asynchronous Discord bot designed to handle your software licensing, key
+                generation, and redemption processes effortlessly within your server.</p>
         </div>
 
         <div class="features-container">
             <div class="feature-box">
                 <h3>Lightning Fast</h3>
-                <p>Built with an asynchronous architecture, KeyFlow processes key generations and redemptions instantly without lagging your Discord server.</p>
+                <p>Built with an asynchronous architecture, KeyFlow processes key generations and redemptions instantly
+                    without lagging your Discord server.</p>
             </div>
             <div class="feature-box">
                 <h3>Secure Storage</h3>
-                <p>All generated keys and user redemptions are safely stored and managed in a persistent database with robust security practices.</p>
+                <p>All generated keys and user redemptions are safely stored and managed in a persistent database with
+                    robust security practices.</p>
             </div>
             <div class="feature-box">
                 <h3>Easy Management</h3>
-                <p>Admins can seamlessly generate new keys, track usage, and monitor active subscriptions directly from Discord slash commands.</p>
+                <p>Admins can seamlessly generate new keys, track usage, and monitor active subscriptions directly from
+                    Discord slash commands.</p>
             </div>
         </div>
 
@@ -64,46 +74,86 @@
                 <p>Experience the seamless command flow directly within Discord.</p>
             </div>
 
-            <div class="demo-box">
-                <div class="demo-info">
+            <div class="demo-box" onclick="toggleDropdown(this)">
+                <div class="demo-header">
                     <h3>/generate</h3>
-                    <p>Instantly create new, secure license keys with custom expiration dates and tiers. Admins have full control over the generation process.</p>
+                    <span class="more-info-btn">More Info <span class="arrow">▼</span></span>
                 </div>
-                <div class="demo-img">
-                    <img src="gen.gif" alt="Generate Command Demo">
+                <div class="demo-content">
+                    <div class="demo-info">
+                        <p>Instantly create new, secure license keys with custom expiration dates and tiers. Admins have
+                            full control over the generation process.</p>
+                    </div>
+                    <div class="demo-img">
+                        <img src="gen.gif" alt="Generate Command Demo">
+                    </div>
                 </div>
             </div>
 
-            <div class="demo-box reverse">
-                <div class="demo-info">
+            <div class="demo-box" onclick="toggleDropdown(this)">
+                <div class="demo-header">
                     <h3>/redeem</h3>
-                    <p>Users can easily claim their licenses. The bot verifies the key and automatically assigns the appropriate premium roles and access.</p>
+                    <span class="more-info-btn">More Info <span class="arrow">▼</span></span>
                 </div>
-                <div class="demo-img">
-                    <img src="redeem.gif" alt="Redeem Command Demo">
+                <div class="demo-content reverse">
+                    <div class="demo-info">
+                        <p>Users can easily claim their licenses. The bot verifies the key and automatically assigns the
+                            appropriate premium roles and access.</p>
+                    </div>
+                    <div class="demo-img">
+                        <img src="redeem.gif" alt="Redeem Command Demo">
+                    </div>
                 </div>
             </div>
 
-            <div class="demo-box">
-                <div class="demo-info">
+            <div class="demo-box" onclick="toggleDropdown(this)">
+                <div class="demo-header">
                     <h3>/profile</h3>
-                    <p>Users can view their active licenses, current subscriptions, and expiration dates. This provides a clear, personalized overview of their account status.</p>
+                    <span class="more-info-btn">More Info <span class="arrow">▼</span></span>
                 </div>
-                <div class="demo-img">
-                    <img src="profile.gif" alt="Profile Command Demo">
+                <div class="demo-content">
+                    <div class="demo-info">
+                        <p>Users can view their active licenses, current subscriptions, and expiration dates. This provides
+                            a clear, personalized overview of their account status.</p>
+                    </div>
+                    <div class="demo-img">
+                        <img src="profile.gif" alt="Profile Command Demo">
+                    </div>
                 </div>
             </div>
 
-            <div class="demo-box reverse">
-                <div class="demo-info">
+            <div class="demo-box" onclick="toggleDropdown(this)">
+                <div class="demo-header">
                     <h3>Expiration Handling</h3>
-                    <p>When a user's subscription runs out, KeyFlow automatically detects the expiration and safely removes their premium access.</p>
+                    <span class="more-info-btn">More Info <span class="arrow">▼</span></span>
                 </div>
-                <div class="demo-img">
-                    <img src="expired.gif" alt="Expiration Demo">
+                <div class="demo-content reverse">
+                    <div class="demo-info">
+                        <p>When a user's subscription runs out, KeyFlow automatically detects the expiration and safely
+                            removes their premium access.</p>
+                    </div>
+                    <div class="demo-img">
+                        <img src="expired.gif" alt="Expiration Demo">
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <script>
+        function toggleDropdown(element) {
+            const isActive = element.classList.contains('active');
+            
+            const allBoxes = document.querySelectorAll('.demo-box');
+            allBoxes.forEach(box => {
+                box.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                element.classList.add('active');
+            }
+        }
+    </script>
 </body>
+
 </html>
