@@ -102,6 +102,23 @@ nav a.nav-link:hover {
     box-shadow: 0 5px 40px rgba(36, 101, 230, 0.5);
 }
 
+.support-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.support-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+}
+
 
 main {
     min-height: calc(100vh - 100px);
