@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Documentation and command reference for KeyFlow, the high-performance, asynchronous Discord license management bot.">
+        content="Documentation and command reference for KeyFlow, a fast and simple Discord bot for managing license keys.">
     <meta name="keywords" content="KeyFlow Docs, Discord Bot Commands, License Management, Key Generation, Async Bot">
     <meta name="author" content="KeyFlow">
 
@@ -13,14 +13,14 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="KeyFlow Docs | Commands">
     <meta property="og:description"
-        content="Documentation and command reference for KeyFlow, the high-performance, asynchronous Discord license management bot.">
+        content="Documentation and command reference for KeyFlow, a fast and simple Discord bot for managing license keys.">
     <meta property="og:image" content="logo.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary">
     <meta property="twitter:title" content="KeyFlow Docs | Commands">
     <meta property="twitter:description"
-        content="Documentation and command reference for KeyFlow, the high-performance, asynchronous Discord license management bot.">
+        content="Documentation and command reference for KeyFlow, a fast and simple Discord bot for managing license keys.">
     <meta property="twitter:image" content="logo.png">
 
     <title>KeyFlow Docs | Commands</title>
@@ -38,6 +38,7 @@
         </a>
         <nav>
             <a href="index.html" class="nav-link">Home</a>
+            <a href="https://discord.gg/nu8fwNBvxk" class="support-btn" target="_blank">Support</a>
             <a href="https://discord.com/oauth2/authorize?client_id=1501742096804085790&permissions=268437504&integration_type=0&scope=bot"
                 class="invite-btn" style="background-color: #5865F2;" target="_blank">Invite Now</a>
         </nav>
@@ -52,29 +53,22 @@
         <div class="cmd-container">
             <div class="cmd-box">
                 <div class="cmd-title">/generate</div>
-                <p class="cmd-desc">Generate a new license key. This command is restricted to administrators and allows
-                    you to create custom keys, specify expiration times, and manage the access level of the generated
-                    license.</p>
+                <p class="cmd-desc">Make a new license key. Only admins can use this to create keys and set how long they last.</p>
             </div>
 
             <div class="cmd-box">
                 <div class="cmd-title">/redeem</div>
-                <p class="cmd-desc">Redeem an active license key to gain access to premium features or roles. Users can
-                    run this command, enter their valid key, and the bot will automatically grant the associated
-                    permissions.</p>
+                <p class="cmd-desc">Use a license key to get your premium roles. Just run the command, enter your key, and the bot will give you access.</p>
             </div>
 
             <div class="cmd-box">
                 <div class="cmd-title">/profile</div>
-                <p class="cmd-desc">View your active licenses, current subscriptions, and expiration dates. This command
-                    provides a personalized overview of your account status within the server.</p>
+                <p class="cmd-desc">Check your account. See what licenses you have and when they expire.</p>
             </div>
 
             <div class="cmd-box">
-                <div class="cmd-title">/revoke</div>
-                <p class="cmd-desc">Instantly remove a user's active license and take away their premium roles. This
-                    admin command allows you to manually cancel subscriptions at any time without waiting for them to
-                    expire.</p>
+                <div class="cmd-title">/dashboard</div>
+                <p class="cmd-desc">An admin menu to manage your server. See stats, check keys, add time to subscriptions, and take away access from a simple menu.</p>
             </div>
         </div>
     </main>
