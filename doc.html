@@ -52,27 +52,76 @@
         </div>
 
         <div class="cmd-container">
-            <div class="cmd-box">
-                <div class="cmd-title">/generate</div>
-                <p class="cmd-desc">Make a new license key. Only admins can use this to create keys and set how long they last.</p>
+            <div class="cmd-box" onclick="toggleCmdDropdown(this)">
+                <div class="cmd-header">
+                    <div class="cmd-title">/generate</div>
+                    <div class="cmd-arrow">▼</div>
+                </div>
+                <div class="cmd-content">
+                    <p class="cmd-desc">Make a new license key. Only admins can use this to create keys and set how long they last.</p>
+                    <div class="cmd-img-container">
+                        <img src="generate.png" alt="/generate Demo" class="cmd-img">
+                    </div>
+                </div>
             </div>
 
-            <div class="cmd-box">
-                <div class="cmd-title">/redeem</div>
-                <p class="cmd-desc">Use a license key to get your premium roles. Just run the command, enter your key, and the bot will give you access.</p>
+            <div class="cmd-box" onclick="toggleCmdDropdown(this)">
+                <div class="cmd-header">
+                    <div class="cmd-title">/redeem</div>
+                    <div class="cmd-arrow">▼</div>
+                </div>
+                <div class="cmd-content">
+                    <p class="cmd-desc">Use a license key to get your premium roles. Just run the command, enter your key, and the bot will give you access.</p>
+                    <div class="cmd-img-container">
+                        <img src="redeem.png" alt="/redeem Demo" class="cmd-img">
+                    </div>
+                </div>
             </div>
 
-            <div class="cmd-box">
-                <div class="cmd-title">/profile</div>
-                <p class="cmd-desc">Check your account. See what licenses you have and when they expire.</p>
+            <div class="cmd-box" onclick="toggleCmdDropdown(this)">
+                <div class="cmd-header">
+                    <div class="cmd-title">/profile</div>
+                    <div class="cmd-arrow">▼</div>
+                </div>
+                <div class="cmd-content">
+                    <p class="cmd-desc">Check your account. See what licenses you have and when they expire.</p>
+                    <div class="cmd-img-container">
+                        <img src="profile.png" alt="/profile Demo" class="cmd-img">
+                    </div>
+                </div>
             </div>
 
-            <div class="cmd-box">
-                <div class="cmd-title">/dashboard</div>
-                <p class="cmd-desc">An admin menu to manage your server. See stats, check keys, add time to licenses, and take away access from a simple menu.</p>
+            <div class="cmd-box" onclick="toggleCmdDropdown(this)">
+                <div class="cmd-header">
+                    <div class="cmd-title">/dashboard</div>
+                    <div class="cmd-arrow">▼</div>
+                </div>
+                <div class="cmd-content">
+                    <p class="cmd-desc">An admin menu to manage your server. See stats, check keys, add time to licenses, and take away access from a simple menu.</p>
+                    <div class="cmd-img-container">
+                        <img src="dashboard.png" alt="/dashboard Demo" class="cmd-img">
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+
+    <script>
+        function toggleCmdDropdown(element) {
+            const isActive = element.classList.contains('active');
+            
+            // Close all boxes
+            const allBoxes = document.querySelectorAll('.cmd-box');
+            allBoxes.forEach(box => {
+                box.classList.remove('active');
+            });
+            
+            // Toggle clicked box
+            if (!isActive) {
+                element.classList.add('active');
+            }
+        }
+    </script>
 </body>
 
 </html>
