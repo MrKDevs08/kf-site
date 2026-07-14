@@ -38,6 +38,7 @@
         </a>
         <nav>
             <a href="index.html" class="nav-link">Home</a>
+            <a href="doc.html" class="nav-link active">Documentation</a>
             <a href="tiers.html" class="nav-link">Tiers</a>
             <a href="https://discord.gg/nu8fwNBvxk" class="support-btn" target="_blank">Support</a>
             <a href="https://discord.com/oauth2/authorize?client_id=1501742096804085790&permissions=268437504&integration_type=0&scope=bot"
@@ -48,56 +49,225 @@
     <main>
         <div class="docs-header">
             <h2>Command Documentation</h2>
-            <p>Below is a brief explanation of all available KeyFlow slash commands.</p>
+            <p>Below is a detailed reference of all available KeyFlow slash commands.</p>
+        </div>
+
+        <div class="filter-section">
+            <div class="search-wrapper">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="cmdSearch" placeholder="Search commands (e.g. /generate)..."
+                    oninput="filterCommands()">
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-category="all" onclick="setCategory('all')">All</button>
+                <button class="filter-btn" data-category="admin" onclick="setCategory('admin')">Admin</button>
+                <button class="filter-btn" data-category="user" onclick="setCategory('user')">User</button>
+            </div>
         </div>
 
         <div class="cmd-container">
-            <div class="cmd-box" onclick="toggleCmdDropdown(this)">
+            <!-- /generate -->
+            <div class="cmd-box" data-category="admin" onclick="toggleCmdDropdown(event, this)">
                 <div class="cmd-header">
-                    <div class="cmd-title">/generate</div>
-                    <div class="cmd-arrow">▼</div>
+                    <div class="command-title-wrapper">
+                        <div class="cmd-title">/generate</div>
+                        <span class="badge admin-badge">Admin</span>
+                    </div>
+                    <div class="cmd-actions">
+                        <button class="copy-btn" onclick="copyCommand(event, '/generate')"
+                            aria-label="Copy command template">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="copy-icon">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span class="tooltip">Copy</span>
+                        </button>
+                        <div class="cmd-arrow">▼</div>
+                    </div>
                 </div>
                 <div class="cmd-content">
-                    <p class="cmd-desc">Make a new license key. Only admins can use this to create keys and set how long they last.</p>
+                    <p class="cmd-desc">Make a new license key. Only admins can use this to create keys and set how long
+                        they last.</p>
+
+                    <div class="cmd-specs">
+                        <h4>Parameters</h4>
+                        <div class="table-wrapper">
+                            <table class="params-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Type</th>
+                                        <th>Required</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="param-name">role</td>
+                                        <td class="param-type">Role</td>
+                                        <td class="param-req yes">Yes</td>
+                                        <td>The role that will be granted to the user who redeems this license.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="param-name">time</td>
+                                        <td class="param-type">String</td>
+                                        <td class="param-req yes">Yes</td>
+                                        <td>Duration for the role license (e.g. <code>1s</code>, <code>1m</code>,
+                                            <code>1h</code>, <code>1d</code>).
+                                        </td>
+                                    </tr>
+                                    <tr class="premium-row">
+                                        <td class="param-name">amount <span class="premium-star">💎</span></td>
+                                        <td class="param-type">Integer</td>
+                                        <td class="param-req no">No</td>
+                                        <td>Number of keys to generate. <em>Premium Tier required for bulk
+                                                generation.</em></td>
+                                    </tr>
+                                    <tr class="premium-row">
+                                        <td class="param-name">key_format <span class="premium-star">💎</span></td>
+                                        <td class="param-type">String</td>
+                                        <td class="param-req no">No</td>
+                                        <td>Custom design structure using 'X' for random chars. <em>Premium Tier
+                                                required.</em></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                     <div class="cmd-img-container">
                         <img src="generate.png" alt="/generate Demo" class="cmd-img">
                     </div>
                 </div>
             </div>
 
-            <div class="cmd-box" onclick="toggleCmdDropdown(this)">
+            <!-- /redeem -->
+            <div class="cmd-box" data-category="user" onclick="toggleCmdDropdown(event, this)">
                 <div class="cmd-header">
-                    <div class="cmd-title">/redeem</div>
-                    <div class="cmd-arrow">▼</div>
+                    <div class="command-title-wrapper">
+                        <div class="cmd-title">/redeem</div>
+                        <span class="badge user-badge">User</span>
+                    </div>
+                    <div class="cmd-actions">
+                        <button class="copy-btn" onclick="copyCommand(event, '/redeem')"
+                            aria-label="Copy command template">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="copy-icon">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span class="tooltip">Copy</span>
+                        </button>
+                        <div class="cmd-arrow">▼</div>
+                    </div>
                 </div>
                 <div class="cmd-content">
-                    <p class="cmd-desc">Use a license key to get your premium roles. Just run the command, enter your key, and the bot will give you access.</p>
+                    <p class="cmd-desc">Use a license key to get your premium roles. Just run the command, enter your
+                        key, and the bot will give you access.</p>
+
+                    <div class="cmd-specs">
+                        <h4>Parameters</h4>
+                        <div class="table-wrapper">
+                            <table class="params-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Type</th>
+                                        <th>Required</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="param-name">key</td>
+                                        <td class="param-type">String</td>
+                                        <td class="param-req yes">Yes</td>
+                                        <td>The license key to redeem. Starts with <code>SVR-</code> for server upgrades
+                                            or standard code for roles.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                     <div class="cmd-img-container">
                         <img src="redeem.png" alt="/redeem Demo" class="cmd-img">
                     </div>
                 </div>
             </div>
 
-            <div class="cmd-box" onclick="toggleCmdDropdown(this)">
+            <!-- /profile -->
+            <div class="cmd-box" data-category="user" onclick="toggleCmdDropdown(event, this)">
                 <div class="cmd-header">
-                    <div class="cmd-title">/profile</div>
-                    <div class="cmd-arrow">▼</div>
+                    <div class="command-title-wrapper">
+                        <div class="cmd-title">/profile</div>
+                        <span class="badge user-badge">User</span>
+                    </div>
+                    <div class="cmd-actions">
+                        <button class="copy-btn" onclick="copyCommand(event, '/profile')"
+                            aria-label="Copy command template">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="copy-icon">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span class="tooltip">Copy</span>
+                        </button>
+                        <div class="cmd-arrow">▼</div>
+                    </div>
                 </div>
                 <div class="cmd-content">
                     <p class="cmd-desc">Check your account. See what licenses you have and when they expire.</p>
+
+                    <div class="cmd-specs">
+                        <p class="no-params">No parameters required. Fetches and displays your active role licenses for
+                            this server.</p>
+                    </div>
+
                     <div class="cmd-img-container">
                         <img src="profile.png" alt="/profile Demo" class="cmd-img">
                     </div>
                 </div>
             </div>
 
-            <div class="cmd-box" onclick="toggleCmdDropdown(this)">
+            <!-- /dashboard -->
+            <div class="cmd-box" data-category="admin" onclick="toggleCmdDropdown(event, this)">
                 <div class="cmd-header">
-                    <div class="cmd-title">/dashboard</div>
-                    <div class="cmd-arrow">▼</div>
+                    <div class="command-title-wrapper">
+                        <div class="cmd-title">/dashboard</div>
+                        <span class="badge admin-badge">Admin</span>
+                    </div>
+                    <div class="cmd-actions">
+                        <button class="copy-btn" onclick="copyCommand(event, '/dashboard')"
+                            aria-label="Copy command template">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="copy-icon">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                            <span class="tooltip">Copy</span>
+                        </button>
+                        <div class="cmd-arrow">▼</div>
+                    </div>
                 </div>
                 <div class="cmd-content">
-                    <p class="cmd-desc">An admin menu to manage your server. See stats, check keys, add time to licenses, and take away access from a simple menu.</p>
+                    <p class="cmd-desc">An admin menu to manage your server. See stats, check keys, add time to
+                        licenses, and take away access from a simple menu.</p>
+
+                    <div class="cmd-specs">
+                        <p class="no-params">No parameters required. Launches the visual management board for server
+                            administrators.</p>
+                    </div>
+
                     <div class="cmd-img-container">
                         <img src="dashboard.png" alt="/dashboard Demo" class="cmd-img">
                     </div>
@@ -106,19 +276,107 @@
         </div>
     </main>
 
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.tiktok.com/@keyflow.website" target="_blank" aria-label="TikTok">
+                <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+                    <path
+                        d="M448 209.9a210.1 210.1 0 0 1 -122.8 -39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/keyflow.website/" target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 448 512" width="20" height="20" fill="currentColor">
+                    <path
+                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                </svg>
+            </a>
+            <a href="https://www.youtube.com/@keyflow.website" target="_blank" aria-label="YouTube">
+                <svg viewBox="0 0 576 512" width="22" height="22" fill="currentColor">
+                    <path
+                        d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z" />
+                </svg>
+            </a>
+        </div>
+        <p>&copy; 2026 KeyFlow. All rights reserved.</p>
+    </footer>
+
     <script>
-        function toggleCmdDropdown(element) {
+        let activeCategory = 'all';
+
+        function toggleCmdDropdown(event, element) {
+            // Stop toggling if click was inside action buttons (e.g. copy)
+            if (event.target.closest('.copy-btn')) {
+                return;
+            }
+
             const isActive = element.classList.contains('active');
-            
+
             // Close all boxes
             const allBoxes = document.querySelectorAll('.cmd-box');
             allBoxes.forEach(box => {
                 box.classList.remove('active');
             });
-            
+
             // Toggle clicked box
             if (!isActive) {
                 element.classList.add('active');
+            }
+        }
+
+        function setCategory(category) {
+            activeCategory = category;
+
+            // Update active state in tabs
+            const tabs = document.querySelectorAll('.filter-btn');
+            tabs.forEach(tab => {
+                if (tab.getAttribute('data-category') === category) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+
+            filterCommands();
+        }
+
+        function filterCommands() {
+            const query = document.getElementById('cmdSearch').value.toLowerCase().trim();
+            const boxes = document.querySelectorAll('.cmd-box');
+
+            boxes.forEach(box => {
+                const title = box.querySelector('.cmd-title').textContent.toLowerCase();
+                const desc = box.querySelector('.cmd-desc').textContent.toLowerCase();
+                const category = box.getAttribute('data-category');
+
+                const matchesQuery = title.includes(query) || desc.includes(query);
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
+
+                if (matchesQuery && matchesCategory) {
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                    box.classList.remove('active');
+                }
+            });
+        }
+
+        async function copyCommand(event, text) {
+            event.stopPropagation();
+            const btn = event.currentTarget;
+            const tooltip = btn.querySelector('.tooltip');
+
+            try {
+                await navigator.clipboard.writeText(text);
+                tooltip.textContent = 'Copied!';
+                btn.classList.add('copied');
+
+                setTimeout(() => {
+                    tooltip.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+                tooltip.textContent = 'Failed';
             }
         }
     </script>
